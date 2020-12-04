@@ -1,7 +1,5 @@
 <template>
-  <div class="block" v-if="showBlock" @click="stopTimer">
-    Click me!
-  </div>
+  <div class="block" v-if="showBlock" @click="stopTimer">Click me!</div>
 </template>
 
 <script>
@@ -32,6 +30,9 @@
         console.log(this.reactionTime);
         this.$emit('end', this.reactionTime)
       }
+    },
+    computed() {
+      reactionTime = reactionTime(Math.floor((ms/1000/60) << 0))
     }
   }
 </script>
